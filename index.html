@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ardiimage - Ubah Gambar Jadi Video</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Ardiimage</h1>
+    <p>Ubah gambar jadi video gerak sesuai keinginanmu – tanpa batas!</p>
+  </header>
+
+  <main>
+    <section class="upload-section">
+      <div class="upload-box">
+        <label for="imageUpload">Upload Gambar Kamu:</label>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <button onclick="startGenerate()">Mulai Generate Video</button>
+      </div>
+      <div class="text-box">
+        <h2>Apa itu Ardiimage?</h2>
+        <p>
+          Ardiimage bantu kamu ubah gambar jadi video gerak sesuai yang kamu mau. Cukup upload gambar, jelaskan gerakan yang diinginkan, dan sistem kami akan membuatkan videonya. Unlimited generate, bebas eksplorasi tanpa batas!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ardiimage.com | Powered by AI</p>
+  </footer>
+
+  <script>
+    function startGenerate() {
+      const file = document.getElementById('imageUpload').files[0];
+      if (!file) {
+        alert('Silakan upload gambar dulu!');
+      } else {
+        alert('Proses generate dimulai (simulasi)');
+      }
+    }
+  </script>
+</body>
+</html>
