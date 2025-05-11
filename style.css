@@ -1,70 +1,44 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #121212;
-  color: #fff;
+  background: linear-gradient(to bottom right, #310052, #4b00a1);
+  color: white;
+  text-align: center;
+  padding: 2rem;
 }
 
 header {
-  text-align: center;
-  padding: 2rem;
-  background-color: #1e1e1e;
-}
-
-main {
-  padding: 2rem;
-}
-
-.upload-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.upload-box, .text-box {
-  flex: 1;
-  min-width: 300px;
+  margin-bottom: 2rem;
 }
 
 .upload-box {
-  background-color: #2c2c2c;
-  padding: 1.5rem;
+  background-color: rgba(255,255,255,0.05);
+  padding: 2rem;
   border-radius: 8px;
-}
-
-.upload-box textarea {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.75rem;
-  font-size: 1rem;
-  resize: vertical;
+  max-width: 500px;
+  margin: auto;
 }
 
 .upload-box input,
+.upload-box select,
 .upload-box button {
   display: block;
-  margin-top: 1rem;
+  margin: 1rem auto;
   width: 100%;
+  max-width: 400px;
   padding: 0.75rem;
   font-size: 1rem;
+  border-radius: 4px;
+  border: none;
 }
 
 .upload-box button {
-  background-color: #ff6600;
-  border: none;
+  background-color: #ff00cc;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
 }
 
 .upload-box button:hover {
-  background-color: #e65c00;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #1e1e1e;
-  margin-top: 2rem;
+  background-color: #e600b0;
 }
