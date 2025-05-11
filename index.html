@@ -1,73 +1,38 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ardiimage - Ubah Gambar Jadi Video</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Ardiimage</h1>
-    <p>Ubah gambar jadi video gerak sesuai keinginanmu – tanpa batas!</p>
-  </header>
+<script>
+  async function startGenerate() {
+    const file = document.getElementById('imageUpload').files[0];
+    const desc = document.getElementById('desc').value.trim();
 
-  <main>
-    <section class="upload-section">
-      <div class="upload-box">
-        <label for="imageUpload">Upload Gambar Kamu:</label>
-        <input type="file" id="imageUpload" accept="image/*" />
-
-        <label for="desc">Deskripsikan Gerakan:</label>
-        <textarea id="desc" placeholder="Contoh: kepala menoleh ke kiri dan tersenyum..." rows="4"></textarea>
-
-        <button onclick="startGenerate()">Mulai Generate Video</button>
-      </div>
-
-      <div class="text-box">
-        <h2>Apa itu Ardiimage?</h2>
-        <p>
-          Ardiimage bantu kamu ubah gambar jadi video gerak sesuai yang kamu mau. Cukup upload gambar, jelaskan gerakan, dan sistem kami akan membuatkan videonya. Unlimited generate, bebas eksplorasi tanpa batas!
-        </p>
-      </div>
-    </section>
-
-    <section id="videoResult" style="display:none; text-align:center; margin-top: 2rem;">
-      <h2>Hasil Video:</h2>
-      <video id="resultVideo" controls width="100%" style="max-width: 480px;">
-        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
-        Browser kamu tidak mendukung pemutar video.
-      </video>
-      <br />
-      <a href="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" download>
-        <button style="margin-top: 1rem;">Download Video</button>
-      </a>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Ardiimage.com | Powered by AI</p>
-  </footer>
-
-  <script>
-    function startGenerate() {
-      const file = document.getElementById('imageUpload').files[0];
-      const desc = document.getElementById('desc').value.trim();
-
-      if (!file) {
-        alert('Silakan upload gambar dulu!');
-        return;
-      }
-
-      if (!desc) {
-        alert('Jangan lupa isi deskripsi gerakan!');
-        return;
-      }
-
-      // Simulasi proses generate
-      alert('Proses generate dimulai (simulasi). Tunggu sebentar...');
-      document.getElementById('videoResult').style.display = 'block';
+    if (!file) {
+      alert('Silakan upload gambar dulu!');
+      return;
     }
-  </script>
-</body>
-</html>
+
+    if (!desc) {
+      alert('Jangan lupa isi deskripsi gerakan!');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('description', desc);
+
+    try {
+      const response = await fetch('https://ardiimage-api.ardimlbb123y.repl.co/generate', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        document.getElementById('videoResult').style.display = 'block';
+        document.getElementById('resultVideo').src = data.videoUrl;
+      } else {
+        alert('Gagal generate video.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Terjadi kesalahan saat menghubungi server.');
+    }
+  }
+</script>
