@@ -17,14 +17,31 @@
       <div class="upload-box">
         <label for="imageUpload">Upload Gambar Kamu:</label>
         <input type="file" id="imageUpload" accept="image/*" />
+
+        <label for="desc">Deskripsikan Gerakan:</label>
+        <textarea id="desc" placeholder="Contoh: kepala menoleh ke kiri dan tersenyum..." rows="4"></textarea>
+
         <button onclick="startGenerate()">Mulai Generate Video</button>
       </div>
+
       <div class="text-box">
         <h2>Apa itu Ardiimage?</h2>
         <p>
-          Ardiimage bantu kamu ubah gambar jadi video gerak sesuai yang kamu mau. Cukup upload gambar, jelaskan gerakan yang diinginkan, dan sistem kami akan membuatkan videonya. Unlimited generate, bebas eksplorasi tanpa batas!
+          Ardiimage bantu kamu ubah gambar jadi video gerak sesuai yang kamu mau. Cukup upload gambar, jelaskan gerakan, dan sistem kami akan membuatkan videonya. Unlimited generate, bebas eksplorasi tanpa batas!
         </p>
       </div>
+    </section>
+
+    <section id="videoResult" style="display:none; text-align:center; margin-top: 2rem;">
+      <h2>Hasil Video:</h2>
+      <video id="resultVideo" controls width="100%" style="max-width: 480px;">
+        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+        Browser kamu tidak mendukung pemutar video.
+      </video>
+      <br />
+      <a href="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" download>
+        <button style="margin-top: 1rem;">Download Video</button>
+      </a>
     </section>
   </main>
 
@@ -35,11 +52,21 @@
   <script>
     function startGenerate() {
       const file = document.getElementById('imageUpload').files[0];
+      const desc = document.getElementById('desc').value.trim();
+
       if (!file) {
         alert('Silakan upload gambar dulu!');
-      } else {
-        alert('Proses generate dimulai (simulasi)');
+        return;
       }
+
+      if (!desc) {
+        alert('Jangan lupa isi deskripsi gerakan!');
+        return;
+      }
+
+      // Simulasi proses generate
+      alert('Proses generate dimulai (simulasi). Tunggu sebentar...');
+      document.getElementById('videoResult').style.display = 'block';
     }
   </script>
 </body>
