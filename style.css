@@ -33,6 +33,14 @@ main {
   border-radius: 8px;
 }
 
+.upload-box textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  resize: vertical;
+}
+
 .upload-box input,
 .upload-box button {
   display: block;
